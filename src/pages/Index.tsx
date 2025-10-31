@@ -1,12 +1,31 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import AboutSection from "@/components/AboutSection";
+import SquadSection from "@/components/SquadSection";
+import MatchSchedule from "@/components/MatchSchedule";
+import StatsSection from "@/components/StatsSection";
+import TrophyCabinet from "@/components/TrophyCabinet";
+import NewsSection from "@/components/NewsSection";
+import Gallery from "@/components/Gallery";
+import FanZone from "@/components/FanZone";
+import StadiumSection from "@/components/StadiumSection";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen">
+      <Navbar />
+      <Hero />
+      <AboutSection />
+      <SquadSection />
+      <MatchSchedule />
+      <StatsSection />
+      <TrophyCabinet />
+      <NewsSection />
+      <Gallery />
+      <FanZone />
+      <StadiumSection />
+      <Footer />
     </div>
   );
 };
