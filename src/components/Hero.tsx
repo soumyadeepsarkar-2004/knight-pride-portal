@@ -32,25 +32,25 @@ const Hero = () => {
       <div className="container mx-auto px-4 relative z-10 text-center">
         <div className="animate-fade-in">
           {/* Main Heading */}
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 bg-gradient-to-r from-accent via-gold-light to-accent bg-clip-text text-transparent animate-glow">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 bg-gradient-to-r from-accent via-gold-light to-accent bg-clip-text text-transparent animate-glow animate-slide-up">
             Korbo Lorbo Jeetbo Re
           </h1>
           
           {/* Subheading */}
-          <div className="flex items-center justify-center gap-3 mb-8">
-            <Trophy className="w-8 h-8 text-accent animate-float" />
+          <div className="flex items-center justify-center gap-3 mb-8 animate-slide-up" style={{ animationDelay: "0.2s" }}>
+            <Trophy className="w-8 h-8 text-accent animate-float animate-bounce-in" />
             <p className="text-xl md:text-2xl text-accent font-semibold">
               Two-time IPL Champions - 2012, 2014
             </p>
-            <Trophy className="w-8 h-8 text-accent animate-float" />
+            <Trophy className="w-8 h-8 text-accent animate-float animate-bounce-in" style={{ animationDelay: "0.1s" }} />
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-slide-up" style={{ animationDelay: "0.3s" }}>
             <Button 
               size="lg"
               onClick={() => handleScrollTo("squad")}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg shadow-purple"
+              className="bg-primary hover:bg-primary/90 hover:scale-105 text-primary-foreground px-8 py-6 text-lg shadow-purple transition-all duration-300 animate-pulse-subtle"
             >
               View Squad
             </Button>
@@ -58,7 +58,7 @@ const Hero = () => {
               size="lg"
               variant="outline"
               onClick={() => handleScrollTo("matches")}
-              className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground px-8 py-6 text-lg"
+              className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground hover:scale-105 px-8 py-6 text-lg transition-all duration-300"
             >
               Match Schedule
             </Button>
@@ -71,11 +71,11 @@ const Hero = () => {
               return (
                 <div
                   key={index}
-                  className="bg-card/10 backdrop-blur-sm border border-accent/20 rounded-lg p-6 hover:scale-105 transition-transform duration-300 animate-scale-in"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  className="bg-card/10 backdrop-blur-sm border border-accent/20 rounded-lg p-6 hover:scale-110 hover:border-accent/50 hover:shadow-gold transition-all duration-500 animate-scale-in group cursor-pointer"
+                  style={{ animationDelay: `${0.4 + index * 0.15}s` }}
                 >
-                  <Icon className="w-8 h-8 text-accent mx-auto mb-2" />
-                  <div className="text-3xl font-bold text-accent mb-1">{stat.value}</div>
+                  <Icon className="w-8 h-8 text-accent mx-auto mb-2 animate-float group-hover:scale-125 transition-transform duration-300" />
+                  <div className="text-3xl font-bold text-accent mb-1 animate-counter">{stat.value}</div>
                   <div className="text-sm text-foreground/80">{stat.label}</div>
                 </div>
               );

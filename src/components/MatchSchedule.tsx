@@ -48,11 +48,21 @@ const MatchSchedule = () => {
 
           {/* Countdown to Next Match */}
           {countdown && (
-            <div className="inline-flex items-center gap-3 bg-gradient-hero text-primary-foreground px-8 py-4 rounded-lg shadow-gold">
-              <Calendar className="w-6 h-6 text-accent" />
+            <div className="inline-flex items-center gap-4 bg-gradient-hero text-primary-foreground px-10 py-6 rounded-xl shadow-gold animate-pulse-subtle border border-accent/30">
+              <Calendar className="w-8 h-8 text-accent animate-bounce" />
               <div>
-                <p className="text-sm opacity-90">Next Match In</p>
-                <p className="text-2xl font-bold">{countdown}</p>
+                <p className="text-sm opacity-90 mb-1">Next Match In</p>
+                <div className="flex gap-2">
+                  {countdown.split(' ').map((unit, index) => (
+                    <div 
+                      key={index}
+                      className="bg-card/20 backdrop-blur-sm px-3 py-1 rounded-lg animate-flip border border-accent/20"
+                      style={{ animationDelay: `${index * 0.1}s` }}
+                    >
+                      <span className="text-2xl font-bold text-accent animate-counter">{unit}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           )}

@@ -83,28 +83,41 @@ const FanZone = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Live Poll */}
-          <Card className="p-6 border-accent/20">
-            <h3 className="text-2xl font-bold mb-4 text-primary flex items-center gap-2">
-              <Trophy className="w-6 h-6 text-accent" />
+          <Card className="p-6 border-accent/20 bg-gradient-card hover:shadow-purple transition-all duration-300">
+            <h3 className="text-2xl font-bold mb-6 text-primary flex items-center gap-2">
+              <Trophy className="w-6 h-6 text-accent animate-float" />
               Player of the Season?
             </h3>
-            <div className="space-y-4">
-              {Object.entries(pollResults).map(([player, votes]) => (
-                <div key={player}>
+            <div className="space-y-5">
+              {Object.entries(pollResults).map(([player, votes], index) => (
+                <div 
+                  key={player}
+                  className="animate-slide-in-right"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
                   <div className="flex justify-between mb-2">
-                    <span className="font-medium">{player}</span>
-                    <span className="text-muted-foreground">
+                    <span className="font-semibold">{player}</span>
+                    <span className="text-accent font-bold">
                       {((votes / totalPollVotes) * 100).toFixed(1)}%
                     </span>
                   </div>
-                  <Progress value={(votes / totalPollVotes) * 100} className="h-3" />
+                  <div className="relative">
+                    <Progress 
+                      value={(votes / totalPollVotes) * 100} 
+                      className="h-4 shadow-lg" 
+                    />
+                    {pollVote === player && (
+                      <div className="absolute inset-0 bg-accent/20 rounded-full animate-pulse-subtle"></div>
+                    )}
+                  </div>
                   {!pollVote && (
                     <Button
                       variant="outline"
                       size="sm"
-                      className="mt-2 border-accent/30 hover:border-accent"
+                      className="mt-3 border-accent/30 hover:border-accent hover:bg-accent/10 hover:scale-105 transition-all duration-300"
                       onClick={() => handlePollVote(player)}
                     >
+                      <Heart className="w-4 h-4 mr-2" />
                       Vote
                     </Button>
                   )}
@@ -112,9 +125,12 @@ const FanZone = () => {
               ))}
             </div>
             {pollVote && (
-              <p className="mt-4 text-sm text-accent">
-                ✓ You voted for {pollVote}
-              </p>
+              <div className="mt-6 p-3 bg-accent/10 border border-accent/30 rounded-lg animate-bounce-in">
+                <p className="text-sm text-accent font-semibold flex items-center gap-2">
+                  <Heart className="w-4 h-4 fill-accent" />
+                  You voted for {pollVote}
+                </p>
+              </div>
             )}
           </Card>
 
