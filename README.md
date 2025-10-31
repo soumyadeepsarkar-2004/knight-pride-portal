@@ -92,5 +92,5 @@ If you have a suggestion that would make this better, please fork the repo and c
 ---
 
 <p align="center">
-  Korbo, Lorbo, Jeetbo Re! Knight Pride Portal is made with 💜 by Soumyadeep Sarkar.
+  Korbo, Lorbo, Jeetbo Re! made with 💜 by Soumyadeep Sarkar.
 </p>
